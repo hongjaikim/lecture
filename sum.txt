@@ -1,3 +1,4 @@
+
 git 환경 설정
 
 git으로 작성하는 모든 문서에 아래의 내용 추가됨
@@ -143,7 +144,7 @@ $ git push -u(처음만) 서버명 브랜치명
 $ git pull 서버명 브랜치명 : 덮어쓰기
 
 $ git remote -v : 리스트확인
-$ git remote remove 서버명 : 목록에서 지우기
+$ git remove remove 서버명 : 목록에서 지우기
 
 $git remote rename 서버명1 서버명2 : 서버명1을 서버명2로 변경
 
