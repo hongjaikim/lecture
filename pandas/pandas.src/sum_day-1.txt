@@ -1,0 +1,92 @@
+# 판다스의 자료구조 : 시리즈, 데이터프레임
+
+# 시리즈 생성 Series(딕셔너리 또는 리스트, index = [])
+
+#시리즈를 접근하는 방법 : sr[index], sr[숫자인덱스]
+
+# 리스트 또는 튜플을 시리즈로 만들면서 인덱스명 부여
+list_data = ['명인','20-06-30','남',True]
+sr1 = pd.Series(list_data,index=['이름','생년월일','성별','학생여부'])
+
+# 데이터프레임 : 시리즈가 여러개 묶여서 됨
+# 딕셔너리로 데이터프레임 생성 -> 키가 컬럼으로 됨
+
+print(sr1.dtype)        #시리즈에 저장된 데이터 타입 숫자 ->int64 문자->o(object)
+print(type(df))
+print(df.dtypes)     # 각 컬럼의 데이터 타입
+print(df.index)      # 데이터프레임의 인덱스 출력
+print(df.values)     # 각 인덱스의 값 : 2차원 리스트
+
+# 2차원 리스트로 인덱스명과 컬럼명을 부여하면서 데이터프레임 생성
+data = [[15,'남','덕영중'],[17,'여','수리중']]
+df = pd.DataFrame(data,index=['준서', '예은'],
+                 columns=['나이','성별','학교'])
+
+# 인덱스명을 변경 : 객체.index = [인덱스명,...]     기존의 정보 수정
+# 컬럼명을 변경 : 객체.columns = [컬럼명,...]       기존의 정보 수정
+
+# 인덱스명과 컬럼명을 일부만 수정하고자 할 경우 
+# object.rename(index={old:new, ...}, inplace=False)      inplace=True 해야 기존의 정보 수정
+# object.column(column={old:new, ...}, inplace=False)
+
+# 행의 자료를 삭제 : 객체.drop(행인덱스 또는 배열, axis=0)
+# 열(컬럼)의 자료를 삭제 : 객체.drop(열인덱스 또는 배열, axis=1)
+
+# 행을 선택 : object.loc[인덱스명]       인덱스명으로 선택
+#             object.iloc[정수인덱스]        숫자 인덱스로 선택
+
+# 범위로 선택 : 서준과 우현의 자료 검색
+# 인덱스명으로 검색 object.loc[start:end] -> end포함
+# 정수인덱스로 검색 object.iloc[start;end] -> end미포함
+
+# 열을 선택 : object[컬럼명] 또는 object.컬럼명
+
+# 원소 선택 : object.loc[행인덱스명,컬럼인덱스명]
+#             object.iloc[행의 정수덱스,컬럼의 정수인덱스]
+# 행을 슬라이싱 : object.iloc[시작인덱스:끝인덱스:간격]
+
+# 열 추가 : object['새로운 컬럼명'] = 값
+# 행 추가 : object.loc[새로운 행 이름] = 값 또는 배열
+
+# 행과 열의 위치 변경 : objecyt.transpose(), object.T
+
+#시리즈를 생성 : pandas.Series(딕셔너리 또는 리스트)
+# 데이터프레임 생성 : pandas.DataFrame(데이터,index=[],column=[])
+# 데이터프레임의 인덱스 변경 : object.index = [인덱스명,...]
+# 데이터프레임의 컬럼 변경 : object.columns = [컬럼명,...]
+# object.함수명( , , , , , inplace=True) -> 기존자료변경
+# 인덱스명과 컬럼명을 일부 변경 : object.rename(index = {old:new, ...},inplace=True/False)
+#                                  object.rename(columns = {old:new, ...},inplace=True/False)
+# 인덱스와 컬럼삭제 : object.drop(인덱스명,axis = 0)        axis = 0 생략가능
+# 인덱스와 컬럼삭제 : object.drop(컬럼명,axis = 1)
+# 원소 수정 : object.loc[인덱스명,컬럼명 ] = 값
+# 행 추가 : object.loc[새로운 인덱스명] = 값 또는 배열
+# 열 추가 : object[새로운 컬럼명] = 값
+# 행 자료 검색 : object.loc[행명] , loc[start:end, 컬럼의 start:end]
+# 열 자료 검색 : objecr[열명] 
+# 인덱스와 컬럼의 위치 변경 : object.transpose(), object.T
+
+# 특정 컬럼을 인덱스로 설정 : object.set_index(컬럼명)
+
+#인덱스 초기화 : object.resrt_index()
+
+# 인덱스를 재배열 : object.reindex(인덱스리스트)
+
+# 인덱스 기준으로 정렬 : object.sort_index()
+
+# 컬럼값을 기준으로 정렬: object.sort_values(by=컬럼,ascending=False)
+
+# df.set_index(), df.reset_index(), df.reindex(인덱스리스트)
+# df.sort_index(), df.sort_values(by=[컬럼, ..],ascending=False)
+
+# 시리즈 vs 시리즈 연산 : 시리즈 연산자(+-/*) 시리즈
+
+# 연산식에 Nan이 존재하면 연산의 결과는 Nan
+
+# 데이터프레임 연산
+# 데이터프레임 연산자(+,-,*,/) 숫자
+
+
+
+
+

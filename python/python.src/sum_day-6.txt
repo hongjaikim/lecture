@@ -1,0 +1,19 @@
+# 가비지 컬렉터 : 더 이상 사용하지 않는 클래스 변수를 제거(못쓰게 된, 자동으로)
+# __del__(self):
+
+# 프라이빗 변수와 게터/세터
+# 프라이빗 변수 : 외부에서 클래스 인스턴스의 값을 수정하지 못하도록 함
+
+# @property, setter 함수를 활용 프라이빗 변수 적용
+class Test:
+    def __init__(self,score):
+        self.__score = score                 #프라이빗 변수 선언, 외부에서 접근 불가
+                                             #내부 함수에서만 접근 가능
+    @property  #getter 함수 정의
+    def score(self):                     
+        return self.__score
+    
+    @score.setter     # setter 함수 정의
+    def score(self,value):
+        self.__score = value
+
